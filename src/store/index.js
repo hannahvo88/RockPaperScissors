@@ -1,15 +1,26 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
+    player: 0,
+    computer: 0,
+    playerChoice: "",
+    computerChoice: ""
   },
   mutations: {
-  },
-  actions: {
-  },
-  modules: {
+    incrementScore(state, player) {
+      state[player]++;
+    },
+    setPlayerMove(state, payload) {
+      state.playerChoice = payload;
+    },
+    setComputerMove(state, payload) {
+      state.computerChoice = payload;
+    }
   }
-})
+});
+
+export default store;
